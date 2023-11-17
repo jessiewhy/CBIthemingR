@@ -1,0 +1,67 @@
+#' @title Format ggplot labels with short notation
+#'
+#' @description format_axis_labels_short() formats axis labels in short notation for use in ggplot.
+#'
+#' @details This function allows you to easily format the labels in an axis to print using short notation. The current maximum short notation allowed is (T)rillions. Also allows (B)illions, (M)illions, and thousands (k).
+#'
+#' @param x The number to format.
+#' @param gap Optional character to place between the number and the short notation label. Defaults to space (" ").
+#' @param sig_digits_small Number of decimals to show for numbers less than 1,000. Defaults to NULL, which means show all available.
+#' @param prefix Optional character(s) to append to the front of the numbers (e.g., prefix = "$" to add a dollar sign)
+#'
+#' @return A character vector of the same size as the input.
+#'
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' ggplot(mapping = aes(x = x, y = y), data = data) + geom_line() +
+#'   scale_y_continuous(labels = format_axis_labels_short)
+#' }
+#' format_axis_labels_short_function()
+format_axis_labels_short <- function(x, gap = " ", sig_digits_small = NULL, prefix = "") {
+  if(is.null(sig_digits_small)) {
+    xn <- dplyr::case_when(abs(x) >= 1000000000000 ~ paste0(round(abs(x) / 1000000000000, 1), gap, "T"),
+                           abs(x) >= 1000000000 ~ paste0(round(abs(x) / 1000000000, 1), gap, "B"),
+                           abs(x) >= 1000000 & abs(x) < 1000000000 ~  paste0(round(abs(x) / 1000000, 1), gap, "M"),
+                           abs(x) >= 1000 & abs(x) < 1000000 ~ paste0(round(abs(x) / 1000, 1), gap, "k"),
+                           T ~ format(abs(x), scientific = F))
+  } else {
+    xn <- dplyr::case_when(abs(x) >= 1000000000000 ~ paste0(round(abs(x) / 1000000000000, 1), gap, "T"),
+                           abs(x) >= 1000000000 ~ paste0(round(abs(x) / 1000000000, 1), gap, "B"),
+                           abs(x) >= 1000000 & abs(x) < 1000000000 ~  paste0(round(abs(x) / 1000000, 1), gap, "M"),
+                           abs(x) >= 1000 & abs(x) < 1000000 ~ paste0(round(abs(x) / 1000, 1), gap, "k"),
+                           T ~ paste0(round(abs(x), sig_digits_small), ""))
+  }
+  xn_sign <- ifelse(sign(x) == -1, "-", "")
+  xn <- paste0(xn_sign, prefix, xn)
+  return(xn)
+}
+
+#' @title Format ggplot labels with default plot settings
+#'
+#' @description format_axis_labels_short() formats axis sets defaults to plots.
+#'
+#' @details TBD
+#'
+#' @param TBD
+#'
+#' @return TBD
+#'
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' ggplot(mapping = aes(x = x, y = y), data = data) + geom_line() +
+#'  theme_cbi_ds() +
+#'  scale_y_continuous(labels = format_axis_labels_short)
+#' }
+#' default_cbi_ds_theme()
+default_cbi_ds_theme <- function() {
+  theme_bw() +
+    theme(axis.title.y = element_blank(),
+          axis.title.x = element_blank(),
+          axis.ticks.y = element_blank(),
+          panel.grid = element_blank())
+
+}

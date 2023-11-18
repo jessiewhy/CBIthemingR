@@ -1,0 +1,59 @@
+---
+title: "Final Report"
+author: "Jessie Huang"
+date: "2023-11-18"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(PHC6099FinalProject)
+library(dplyr)
+library(tidyverse)
+```
+
+# Introduction
+The data science team at Constellation Brands is passionate about standardized coding practices. As part of our efforts to make our code as reusable as possible, we have created common places to store functions that can be called and used by any member on the team in order to pipeline our overall workflow during development.  
+  
+This process has produced a solid foundation on the technical front, however there is room for improvement on the presentation front. The goal of this package is to store functions that will assist with producing polished visuals (mainly plots) in a fast and consistent manner.  
+
+# Methods
+This initial package version will target clean-up, readability, and theming and will evolve over time depending on the team's needs.  
+
+## Axis Solution
+As an alcoholic company, much of the data we handle is financial or alc-bev volumetric based. These numbers grow rapidly and can turn plots into a headache to read in no time. As such, a feasible solution for this was to format the plot labels by using shorted notation. E.g. T for trillions, B for billions, M for millions, and k for thousands.  
+
+## Theming Solution
+
+### Base Theme
+Default options in ggplot come with a lot of clutter. In order to clean up the plots to enhance readability, the package comes with a function to clean up the defaults and remove unnecessary and redundant text/visuals from the plot.  
+
+# Results
+
+## Toy Data
+
+```{r simulated-data}
+ex1_data <- data.frame(x = runif(100) * 1000000, y = runif(100), roi_type = sample(1:2, 100, replace = T))
+```
+
+## Axis Demo
+
+```{r sample-plot1}
+ex1_data %>%
+  ggplot(aes(x = x, y = y, color = roi_type)) + 
+  geom_line() +
+  scale_y_continuous(labels = function(x) sprintf("$%1.2f", x)) +
+  scale_x_continuous(labels = format_axis_labels_short)
+```
+## Axis Demo
+
+```{r sample-plot2}
+ex1_data %>%
+  ggplot(aes(x = x, y = y, color = roi_type)) + 
+  geom_line() +
+  base_theme() +
+  scale_y_continuous(labels = function(x) sprintf("$%1.2f", x)) +
+  scale_x_continuous(labels = format_axis_labels_short)
+```
+
+# Conclusion

@@ -37,31 +37,3 @@ format_axis_labels_short <- function(x, gap = " ", sig_digits_small = NULL, pref
   xn <- paste0(xn_sign, prefix, xn)
   return(xn)
 }
-
-#' @title Format ggplot labels with default plot settings
-#'
-#' @description format_axis_labels_short() formats axis sets defaults to plots.
-#'
-#' @details TBD
-#'
-#' @param TBD
-#'
-#' @return TBD
-#'
-#' @export
-#'
-#' @examples
-#' \dontrun{
-#' ggplot(mapping = aes(x = x, y = y), data = data) + geom_line() +
-#'  theme_cbi_ds() +
-#'  scale_y_continuous(labels = format_axis_labels_short)
-#' }
-#' default_cbi_ds_theme()
-default_cbi_ds_theme <- function() {
-  theme_bw() +
-    theme(axis.title.y = element_blank(),
-          axis.title.x = element_blank(),
-          axis.ticks.y = element_blank(),
-          panel.grid = element_blank())
-
-}

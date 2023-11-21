@@ -1,15 +1,15 @@
 Package: PHC6099FinalProject
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Standardized Plot Theming for Constellation Brands
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: Jessie Huang
+Maintainer: jessie.huang@cbrands.com
+Description: Enables the user to create ggplot2 charts that conform 
+    to Constellation Brands data science team standards. 
+License: Constellation Brands, Inc. 
 Encoding: UTF-8
 LazyData: true
 Imports:
-	dpylr,
+	dplyr,
 	tidyverse
 RoxygenNote: 7.2.3

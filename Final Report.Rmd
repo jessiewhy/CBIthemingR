@@ -1,5 +1,5 @@
 ---
-title: "Final Report"
+title: "PHC6099: Final Project Report"
 author: "Jessie Huang"
 date: "2023-11-18"
 output: html_document
@@ -10,51 +10,67 @@ knitr::opts_chunk$set(echo = TRUE)
 library(PHC6099FinalProject)
 library(dplyr)
 library(tidyverse)
-library(grattantheme)
+# library(grattantheme)
 ```
 
 # Introduction
-The data science team at Constellation Brands is passionate about standardized coding practices. As part of our efforts to make our code as reusable as possible, we have created common places to store functions that can be called and used by any member on the team in order to pipeline our overall workflow during development.  
+The data science team at Constellation Brands (CBI) is passionate about standardized coding practices. As part of our efforts to make our code as reusable as possible, we have created common places to store functions that can be called and used by any member on the team in order to pipeline our overall workflow during development.  
   
-This process has produced a solid foundation on the technical front, however there is room for improvement on the presentation front. The goal of this package is to store functions that will assist with producing polished visuals (mainly plots) in a fast and consistent manner.  
+This process has produced a solid foundation on the technical front, however there is room for improvement on the presentation front. Visually appealing plots that meet company standards is crucial to the data science team's efforts to expose our work to the business in a digestible format that is easy to interpret. The data science team wants the business to understand the team's capabilities, 
+
+The goal of this package is to store functions that will assist with producing polished visuals (mainly plots) in a fast and consistent manner. Having defaults saved and ready to go at any given time will save the team immense time and effort when turning our analytic results into a high level presentation that we intend to deliver to the business. This type of readiness will be especially useful for delivering on ad-hoc items where visual standards are not set in stone. Going forward, instead of guessing on the visual front, the team can just default to the package's standardized theming.  
 
 # Methods
-This initial package version will target clean-up, readability, and theming and will evolve over time depending on the team's needs.  
+This initial package version will target clean-up, readability, and matching company theming. In time, this will evolve depending on the team's needs and business requirements.  
 
 ## Axis Solution
-As an alcoholic company, much of the data we handle is financial or alc-bev volumetric based. These numbers grow rapidly and can turn plots into a headache to read in no time. As such, a feasible solution for this was to format the plot labels by using shorted notation. E.g. T for trillions, B for billions, M for millions, and k for thousands.  
+As an alcohol company, much of the data we handle is financial or volumetric based. These numbers grow rapidly and can turn plots into a headache to read. As such, a feasible solution for this was to format the plot labels by using shorted notation. E.g. T for trillions, B for billions, M for millions, and k for thousands.  
 
 ## Theming Solution
+Default options in ggplot come with a lot of clutter. In order to enhance readability, the package comes with a function to clean up defaults and remove redundant text/visuals from the plot.  
 
-### Base Theme
-Default options in ggplot come with a lot of clutter. In order to clean up the plots to enhance readability, the package comes with a function to clean up the defaults and remove unnecessary and redundant text/visuals from the plot.  
+## Color Solution
+In order to match company theming, a good starting point was setting up a color palette based on the company's colors. The palette settings can be found in cbi_colors.R. I use these to set some defaults in cbi_geom_defaults.R. Combining these items, I'm able to create a clean chart that also matches company theming.  
 
 # Results
 
 ## Toy Data
 
 ```{r simulated-data}
-ex1_data <- data.frame(x = runif(100) * 1000000, y = runif(100), roi_type = sample(1:2, 100, replace = T))
+data <- data.frame(x = runif(100) * 1000000, y = runif(100), roi_type = sample(1:2, 100, replace = T))
 ```
 
 ## Axis Demo
 
 ```{r sample-plot1}
-ex1_data %>%
-  ggplot(aes(x = x, y = y, color = roi_type)) + 
-  geom_line() +
+data %>%
+  ggplot(aes(x = x, y = y)) + 
+  geom_line(aes(color = roi_type)) +
   scale_y_continuous(labels = function(x) sprintf("$%1.2f", x)) +
   scale_x_continuous(labels = format_axis_labels_short)
 ```
-## Axis Demo
+## Theming Demo
 
 ```{r sample-plot2}
-ex1_data %>%
-  ggplot(aes(x = x, y = y, color = roi_type)) + 
-  geom_line() +
-  base_theme() +
+data %>%
+  ggplot(aes(x = x, y = y)) + 
+  geom_line(aes(color = roi_type)) +
+  cbi_theme_normal() +
   scale_y_continuous(labels = function(x) sprintf("$%1.2f", x)) +
   scale_x_continuous(labels = format_axis_labels_short)
+```
+
+## Color Demo
+
+```{r sample-plot3}
+ex1_data %>%
+  ggplot(aes(x = x, y = y)) + 
+  geom_line(aes(color = roi_type)) +
+  cbi_theme_normal() +
+  scale_y_continuous(labels = function(x) sprintf("$%1.2f", x)) +
+  scale_x_continuous(labels = format_axis_labels_short) +
+  scale_colour_gradient(low = PHC6099FinalProject::cbi_base_darkblue, high = PHC6099FinalProject::cbi_base_lightblue)
 ```
 
 # Conclusion
+Overall, this is only the beginning of what we can do to standardize CBI plots. A good portion of the code was inspired by the grattantheme() package, and as such this exercise allowed me to see the full extent of customized theming capabilities that can be done in R. In time, I would like to interview more data scientists on the team and see what else they would like to add to the package. Some suggestions I've heard in passing include standardizing any work we do with cartography in terms of map scaling and coloring the maps to company standards.   

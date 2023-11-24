@@ -18,8 +18,8 @@
 #' ggplot(mapping = aes(x = x, y = y), data = data) + geom_line() +
 #'   scale_y_continuous(labels = format_axis_labels_short)
 #' }
-#' format_axis_labels_short_function()
-format_axis_labels_short <- function(x, gap = " ", sig_digits_small = NULL, prefix = "") {
+#' format_axis_labels_short()
+format_axis_labels_short <- function(x = c(0), gap = " ", sig_digits_small = NULL, prefix = "") {
   if(is.null(sig_digits_small)) {
     xn <- dplyr::case_when(abs(x) >= 1000000000000 ~ paste0(round(abs(x) / 1000000000000, 1), gap, "T"),
                            abs(x) >= 1000000000 ~ paste0(round(abs(x) / 1000000000, 1), gap, "B"),

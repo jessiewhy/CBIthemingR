@@ -4,7 +4,12 @@
 \alias{format_axis_labels_short}
 \title{Format ggplot labels with short notation}
 \usage{
-format_axis_labels_short(x, gap = " ", sig_digits_small = NULL, prefix = "")
+format_axis_labels_short(
+  x = c(0),
+  gap = " ",
+  sig_digits_small = NULL,
+  prefix = ""
+)
 }
 \arguments{
 \item{x}{The number to format.}
@@ -29,5 +34,5 @@ This function allows you to easily format the labels in an axis to print using s
 ggplot(mapping = aes(x = x, y = y), data = data) + geom_line() +
   scale_y_continuous(labels = format_axis_labels_short)
 }
-format_axis_labels_short_function()
+format_axis_labels_short()
 }

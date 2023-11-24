@@ -1,9 +1,10 @@
-Package: PHC6099FinalProject
+Package: CBIthemingR
 Type: Package
 Title: Standardized Plot Theming for Constellation Brands
 Version: 0.1.0
-Author: Jessie Huang
-Maintainer: jessie.huang@cbrands.com
+Authors@R: c(
+    person(given = "Jessie", family = "Huang", email = "jessie.huang@cbrands.com",
+                role = c("aut", "cre")))
 Description: Enables the user to create ggplot2 charts that conform 
     to Constellation Brands data science team standards. 
 License: Constellation Brands, Inc. 
@@ -11,5 +12,5 @@ Encoding: UTF-8
 LazyData: true
 Imports:
 	dplyr,
-	tidyverse
+	ggplot2
 RoxygenNote: 7.2.3

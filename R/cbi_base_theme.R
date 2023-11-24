@@ -17,7 +17,7 @@
 #' }
 #' cbi_base_theme()
 cbi_base_theme <- function() {
-  ret <- theme_bw() +
+  ret <- ggplot2::theme_bw() +
     ggplot2::theme(
       axis.line.y = ggplot2::element_blank(),
       axis.ticks.y = ggplot2::element_blank(),

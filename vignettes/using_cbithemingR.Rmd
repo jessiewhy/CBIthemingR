@@ -1,0 +1,23 @@
+---
+title: "Using CBIthemingR"
+author: "Jessie Huang"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Using CBIthemingR}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, echo = FALSE, message = FALSE}
+height <- 4
+width <- 6
+
+knitr::opts_chunk$set(collapse = T, comment = "#>", 
+                      fig.align='center',
+                      fig.height = height,
+                      fig.retina = 2,
+                      fig.width = width)
+library(ggplot2)
+library(CBIthemingR)
+```

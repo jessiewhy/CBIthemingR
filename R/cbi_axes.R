@@ -37,3 +37,23 @@ format_axis_labels_short <- function(x = c(0), gap = " ", sig_digits_small = NUL
   xn <- paste0(xn_sign, prefix, xn)
   return(xn)
 }
+
+#' @title Format ggplot labels with dollar notation
+#'
+#' @description format_financial_data() formats axis labels in dollar notation for use in ggplot.
+#'
+#' @details This function allows you to easily format the labels in an axis to print using dollar notation. The current maximum short notation allowed is (T)rillions. Also allows (B)illions, (M)illions, and thousands (k).
+#'
+#' @param x The number to format.
+#'
+#' @return N/A
+#'
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' ggplot(mapping = aes(x = x, y = y), data = data) + geom_line() +
+#'   scale_y_continuous(labels = format_financial_data)
+#' }
+#' format_financial_data()
+format_financial_data <- function(x) sprintf("$%1.2f", x)

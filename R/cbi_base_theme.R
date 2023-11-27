@@ -19,10 +19,10 @@
 cbi_base_theme <- function() {
   ret <- ggplot2::theme_bw() +
     ggplot2::theme(
-      axis.line.y = ggplot2::element_blank(),
-      axis.ticks.y = ggplot2::element_blank(),
-      axis.title.y = ggplot2::element_blank(),
-      panel.grid = ggplot2::element_blank()
+      axis.title.y = element_blank(),
+      axis.title.x = element_blank(),
+      axis.ticks.y = element_blank(),
+      panel.grid = element_blank()
     )
   cbi_geom_defaults()
   return(ret)

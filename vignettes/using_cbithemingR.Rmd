@@ -54,4 +54,22 @@ data %>%
   scale_y_continuous(labels = function(x) sprintf("$%1.2f", x)) +
   scale_x_continuous(labels = format_axis_labels_short)
 ```
+## Using CBI colors
 
+Calling single colors:
+```{r sample-plot3}
+data %>%
+  ggplot(aes(x = x, y = y)) + 
+  geom_line(aes(color = roi_type)) +
+  cbi_base_theme() +
+  scale_y_continuous(labels = function(x) sprintf("$%1.2f", x)) +
+  scale_x_continuous(labels = format_axis_labels_short) +
+  scale_colour_gradient(low = cbi_base_darkblue, high = cbi_base_lightblue)
+```
+### Discrete:
+
+#### More than 10 color case:
+
+### Continuous:
+
+## Saving charts to bring to reports and ppts functionality

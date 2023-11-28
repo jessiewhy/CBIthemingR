@@ -54,9 +54,11 @@ data %>%
   scale_y_continuous(labels = format_financial_data) +
   scale_x_continuous(labels = format_axis_labels_short)
 ```
+
 ## Using CBI colors
 
-Calling single colors:
+### Calling single colors:
+
 ```{r sample-plot3}
 data %>%
   ggplot(aes(x = x, y = y)) + 
@@ -69,6 +71,7 @@ data %>%
 
 
 ### Continuous:
+
 ```{r sample-plot4}
 data %>%
   ggplot(aes(x = x, y = y)) + 
@@ -94,10 +97,12 @@ plot +
   cbi_base_theme() +
   scale_color_cbi(discrete = TRUE)
 ```
+
 #### Greater than 10 color case:
 ```{r sample-plot6}
 ggplot(mtcars, aes(x = mpg, y = hp, colour = as.character(wt))) +
   geom_point() +
+  cbi_base_theme() +
   scale_colour_manual(values = make_cbi_pal()(29))
 ```
 

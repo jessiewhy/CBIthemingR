@@ -56,4 +56,4 @@ format_axis_labels_short <- function(x = c(0), gap = " ", sig_digits_small = NUL
 #'   scale_y_continuous(labels = format_financial_data)
 #' }
 #' format_financial_data()
-format_financial_data <- function(x) sprintf("$%1.2f", x)
+format_financial_data <- function(x = c(0)) sprintf("$%1.2f", x)

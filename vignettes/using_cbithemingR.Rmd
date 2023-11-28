@@ -51,7 +51,7 @@ data %>%
   ggplot(aes(x = x, y = y)) + 
   geom_line(aes(color = roi_type)) +
   cbi_base_theme() +
-  scale_y_continuous(labels = function(x) sprintf("$%1.2f", x)) +
+  scale_y_continuous(labels = format_financial_data) +
   scale_x_continuous(labels = format_axis_labels_short)
 ```
 ## Using CBI colors
@@ -62,26 +62,26 @@ data %>%
   ggplot(aes(x = x, y = y)) + 
   geom_line(aes(color = roi_type)) +
   cbi_base_theme() +
-  scale_y_continuous(labels = function(x) sprintf("$%1.2f", x)) +
+  scale_y_continuous(labels = format_financial_data) +
   scale_x_continuous(labels = format_axis_labels_short) +
-  scale_colour_gradient(low = cbi_base_darkblue, high = cbi_base_lightblue)
+  scale_colour_gradient(low = cbi_darkblue, high = cbi_lightblue)
 ```
 
 
 ### Continuous:
-```{r sample-plot3}
+```{r sample-plot4}
 data %>%
   ggplot(aes(x = x, y = y)) + 
   geom_line(aes(color = roi_type)) +
   cbi_base_theme() +
-  scale_y_continuous(labels = function(x) sprintf("$%1.2f", x)) +
+  scale_y_continuous(labels = format_financial_data) +
   scale_x_continuous(labels = format_axis_labels_short) +
   scale_color_cbi(discrete = FALSE)
 ```
 
 ### Discrete:
 
-```{r}
+```{r sample-plot5}
 plot <- ggplot(iris,
                aes(x = Sepal.Length,
                    y = Sepal.Width,
@@ -94,8 +94,8 @@ plot +
   cbi_base_theme() +
   scale_color_cbi(discrete = TRUE)
 ```
-#### More than 10 color case:
-```{r}
+#### Greater than 10 color case:
+```{r sample-plot6}
 ggplot(mtcars, aes(x = mpg, y = hp, colour = as.character(wt))) +
   geom_point() +
   scale_colour_manual(values = make_cbi_pal()(29))

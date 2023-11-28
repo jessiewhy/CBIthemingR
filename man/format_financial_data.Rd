@@ -4,7 +4,7 @@
 \alias{format_financial_data}
 \title{Format ggplot labels with dollar notation}
 \usage{
-format_financial_data(x)
+format_financial_data(x = c(0))
 }
 \arguments{
 \item{x}{The number to format.}

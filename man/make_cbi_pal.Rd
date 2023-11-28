@@ -7,32 +7,29 @@
 make_cbi_pal(palette = "sequential", reverse = FALSE, ...)
 }
 \arguments{
-\item{palette}{(character; default = \code{"graph"}) given name of a CBI
+\item{palette}{(char; default = \code{"graph"}) given name of a CBI
 palette: \code{\link{cbi_palettes}}}
 
-\item{reverse}{(boolean; default = \code{FALSE}) flags if palette should
-be reverse}
+\item{reverse}{(bool; default = \code{FALSE}) flags if user wishes to reverse
+palette order}
 
 \item{...}{Additional arguments to pass to \code{colorRampPalette} see
 details here \code{\link[grDevices]{colorRamp}}}
 }
 \description{
-takes a CBI color palette and generates more colors from it,
+Uses CBI color palette and generates more colors from it,
 so that amount of colors needed is always met
 }
 \details{
-The interpolation method is set to "spline" (while default is "linear") to
+Interpolation set to "spline" (while default is "linear") to
 reduce the number of redundant colors.
 
-Returns a function that takes a single value and makes that many colors.
+Returns a function that takes a single value and turns it into many colors.
 }
 \examples{
 
 ggplot2::ggplot(mtcars, ggplot2::aes(x = mpg, y = hp, color = as.character(wt))) +
   ggplot2::geom_point() +
-  ggplot2::scale_color_manual(values = make_cbi_pal()(29))
+  ggplot2::scale_colour_manual(values = make_cbi_pal()(26))
 
-}
-\seealso{
-\code{\link{cbi_palettes}}
 }

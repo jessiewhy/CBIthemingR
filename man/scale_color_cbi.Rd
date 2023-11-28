@@ -10,27 +10,22 @@ scale_color_cbi(palette = NULL, discrete = FALSE, reverse = FALSE, ...)
 scale_fill_cbi(palette = NULL, discrete = FALSE, reverse = FALSE, ...)
 }
 \arguments{
-\item{palette}{Character name of palette in \code{cbi_palettes}}
+\item{palette}{Char name of palette in \code{cbi_palettes}}
 
-\item{discrete}{Boolean indicating whether color aesthetic is discrete or
-not}
+\item{discrete}{Bool flagging whether color aesthetic is discrete or not}
 
 \item{reverse}{Boolean indicating whether the palette should be reversed}
 
-\item{...}{Additional arguments passed to \code{\link{discrete_scale}} or
-\code{\link{scale_color_gradientn}}, used respectively when discrete is
-TRUE or FALSE}
+\item{...}{Further arguments passed to \code{\link{discrete_scale}} or
+\code{\link{scale_colour_gradientn}}}
 }
 \description{
-If you get an error about not enough colors, try a different palette (such
-as \code{graph}) or set \code{discrete = FALSE}. If you are plotting discrete colors
-and need more than 10 colors, then you will have to make your own palette using
+If plotting discrete data that needs more than 10 colors,
+then you will have to create your own palette using
 \code{\link{make_cbi_pal}}.
 }
 \section{Functions}{
 \itemize{
-\item \code{scale_color_cbi()}: For color scales
-
 \item \code{scale_fill_cbi()}: For fill scales
 
 }}

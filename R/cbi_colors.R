@@ -9,16 +9,19 @@ cbi_base_lightblue <- '#3b82f6'
 cbi_base_interestingblue <- '#5bc0de'
 cbi_base_yellow <- '#fdba31'
 
+#' '
+#'
 #' @export
-#' cbi_base_white
 cbi_base_white <- '#ffffff'
 
+#' '
+#'
 #' @export
-#' cbi_base_gray
 cbi_base_gray <- '#666666'
 
+#' '
+#'
 #' @export
-#' cbi_base_black
 cbi_base_black <- '#121212'
 
 # blue ----------

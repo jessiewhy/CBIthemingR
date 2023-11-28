@@ -6,9 +6,6 @@
 \usage{
 cbi_base_theme()
 }
-\arguments{
-\item{None}{}
-}
 \value{
 A theme object catered toward CBI standards
 }
@@ -16,7 +13,7 @@ A theme object catered toward CBI standards
 cbi_base_theme() removes ggplot() default that result in confused clutter over readability
 }
 \details{
-TBD
+This is TBD
 }
 \examples{
 \dontrun{

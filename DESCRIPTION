@@ -1,6 +1,6 @@
 Package: CBIthemingR
 Type: Package
-Title: Standardized Plot Theming for Constellation Brands, Inc. 
+Title: Standardized Plot Theming for Constellation Brands, Inc. Data Science Team 
 Version: 0.1.0
 Authors@R: c(
     person(given = "Jessie", family = "Huang", email = "jessie.huang@cbrands.com",
@@ -12,7 +12,9 @@ Encoding: UTF-8
 LazyData: true
 Imports:
 	dplyr,
-	ggplot2
+	ggplot2,
+	grDevices,
+	assertthat
 RoxygenNote: 7.2.3
 Suggests: knitr, rmarkdown
 VignetteBuilder: knitr

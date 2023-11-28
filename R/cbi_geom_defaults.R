@@ -8,10 +8,10 @@ cbi_geom_defaults <- function() {
   # release (see https://github.com/tidyverse/ggplot2/pull/2749)
   # when this happens, code below will have to be replaced
   update_geom_defaults('point',
-                       list(colour = CBIthemingR::cbi_base_lightblue,
+                       list(colour = CBIthemingR::cbi_darkblue,
                             size = 6 / .pt))
   update_geom_defaults('line',
-                       list(colour = CBIthemingR::cbi_base_lightblue,
+                       list(colour = CBIthemingR::cbi_darkblue,
                             size = 3 / .pt))
   update_geom_defaults('text',
                        list(colour = CBIthemingR::cbi_base_black,
@@ -19,5 +19,5 @@ cbi_geom_defaults <- function() {
   update_geom_defaults('label',
                        list(size = 18 / .pt,
                             fill = CBIthemingR::cbi_base_white,
-                            colour = CBIthemingR::cbi_base_lightblue))
+                            colour = CBIthemingR::cbi_darkblue))
 }

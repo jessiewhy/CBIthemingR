@@ -30,6 +30,6 @@ Returns a function that takes a single value and turns it into many colors.
 
 ggplot2::ggplot(mtcars, ggplot2::aes(x = mpg, y = hp, color = as.character(wt))) +
   ggplot2::geom_point() +
-  ggplot2::scale_colour_manual(values = make_cbi_pal()(26))
+  ggplot2::scale_colour_manual(values = make_cbi_pal()(29))
 
 }

@@ -18,7 +18,7 @@ knitr::opts_chunk$set(collapse = T, comment = "#>",
                       fig.height = height,
                       fig.retina = 2,
                       fig.width = width)
-libary(tidyverse)
+library(dplyr)
 library(ggplot2)
 library(CBIthemingR)
 ```
@@ -105,5 +105,3 @@ ggplot(mtcars, aes(x = mpg, y = hp, colour = as.character(wt))) +
   cbi_base_theme() +
   scale_colour_manual(values = make_cbi_pal()(29))
 ```
-
-## Saving charts to bring to reports and ppts functionality

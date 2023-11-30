@@ -56,7 +56,7 @@ palette_order <- list(
 #'
 #' ggplot2::ggplot(mtcars, ggplot2::aes(x = mpg, y = hp, color = as.character(wt))) +
 #'   ggplot2::geom_point() +
-#'   ggplot2::scale_colour_manual(values = make_cbi_pal()(26))
+#'   ggplot2::scale_colour_manual(values = make_cbi_pal()(29))
 #'
 #' @export
 make_cbi_pal <- function(palette = "sequential",

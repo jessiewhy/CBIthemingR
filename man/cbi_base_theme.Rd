@@ -2,7 +2,7 @@
 % Please edit documentation in R/cbi_base_theme.R
 \name{cbi_base_theme}
 \alias{cbi_base_theme}
-\title{Remove defaults from ggplots}
+\title{Remove defaults from ggplot charts}
 \usage{
 cbi_base_theme()
 }
@@ -10,10 +10,11 @@ cbi_base_theme()
 A theme object catered toward CBI standards
 }
 \description{
-cbi_base_theme() removes ggplot() default that result in confused clutter over readability
+cbi_base_theme() allows users to call a CBI standardized theme to ggplot charts.
 }
 \details{
-This is TBD
+This function removes ggplot() default options that clutter chart space to enhance readability.
+ Additionally, it calls upon cbi_geom_defaults() to set standard CBI colors to frequently used plot elements.
 }
 \examples{
 \dontrun{

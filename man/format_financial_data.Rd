@@ -16,7 +16,7 @@ N/A
 format_financial_data() formats axis labels in dollar notation for use in ggplot.
 }
 \details{
-This function allows you to easily format the labels in an axis to print using dollar notation. The current maximum short notation allowed is (T)rillions. Also allows (B)illions, (M)illions, and thousands (k).
+This function allows you to easily format the labels in an axis to print using dollar notation.
 }
 \examples{
 \dontrun{

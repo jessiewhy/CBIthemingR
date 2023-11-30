@@ -37,8 +37,8 @@ palette_order <- list(
 
 #' Interpolate CBI color palette
 #'
-#' Uses CBI color palette and generates more colors from it,
-#' so that amount of colors needed is always met
+#' Uses CBI color palette and generates more colors from it
+#' so that amount of colors needed is always met.
 #'
 #' Interpolation set to "spline" (while default is "linear") to
 #' reduce the number of redundant colors.
@@ -56,46 +56,63 @@ palette_order <- list(
 #'
 #' ggplot2::ggplot(mtcars, ggplot2::aes(x = mpg, y = hp, color = as.character(wt))) +
 #'   ggplot2::geom_point() +
-#'   ggplot2::scale_colour_manual(values = make_cbi_pal()(26))
+#'   ggplot2::scale_colour_manual(values = make_cbi_pal()(29))
 #'
 #' @export
 make_cbi_pal <- function(palette = "sequential",
-                             reverse = FALSE,
-                             ...) {
+                         reverse = FALSE,
+                         ...) {
+  palette_options <- c("graph", "sequential", "diverging")
+  tryCatch(
+    {
+      if(palette %in% palette_options) {
+        pal <- cbi_palettes[[palette]]
 
-  assertthat::assert_that(palette %in% c("graph", "sequential", "diverging"),
-                          msg = "Palette isn't `graph`, `sequential` or `diverging`")
+        if (reverse) pal <- rev(pal)
 
-  pal <- cbi_palettes[[palette]]
-
-  if (reverse) pal <- rev(pal)
-
-  grDevices::colorRampPalette(
-    pal,
-    ...,
-    interpolate = "spline"
+        return(grDevices::colorRampPalette(
+          pal,
+          ...,
+          interpolate = "spline"
+        ))
+      }
+      error=function(e) {
+        msg = "Palette isn't valid option: `graph`, `sequential` or `diverging`"
+        return(msg)
+      }
+    }
   )
 }
 
 #' Create a CBI color palette
 #'
-#' Function takes CBI graph color palette and returns a vector of colors equal to n.
+#' Function takes CBI graph color palette and returns a vector of colors the size of n.
 #' Used in \code{\link{scale_color_cbi}} and \code{\link{scale_fill_cbi}} to make the discrete
 #' color scale
 #'
 #' @param n how many colors to return
 #'
 #' @export
+#'
+#'
 make_cbi_pal_discrete <- function(n) {
-  assertthat::assert_that(n <= 10,
-                          msg = "Chart requires more than 10 colors. Consider a continuous palette or make a palette with more colors own using `make_cbi_pal(palette = 'graph')` e.g. `scale_color_manual(values = make_cbi_pal(palette = 'graph')(29))")
-  pal <- cbi_palettes[["graph"]][1:n]
+  tryCatch(
+    {
+      if (n <= 10){
+        pal <- cbi_palettes[["graph"]][1:n]
 
-  order_name <- 'curr'
+        order_name <- 'curr'
 
-  order <- palette_order[[order_name]]
+        order <- palette_order[[order_name]]
 
-  ordered_pal <- order[order %in% pal]
+        ordered_pal <- order[order %in% pal]
 
-  return(ordered_pal)
+        return(ordered_pal)
+      }
+      error=function(e) {
+        msg = "Chart requires more than 10 colors. Consider a continuous palette using `make_cbi_pal(palette = 'graph')"
+        return(msg)
+      }
+    }
+  )
 }

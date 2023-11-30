@@ -18,7 +18,7 @@ knitr::opts_chunk$set(collapse = T, comment = "#>",
                       fig.height = height,
                       fig.retina = 2,
                       fig.width = width)
-library(tidyverse)
+library(dplyr)
 library(ggplot2)
 library(CBIthemingR)
 ```
@@ -57,6 +57,8 @@ data %>%
 
 ## Using CBI colors
 
+To align `ggplot` charts with CBI color branding, please see examples below.  
+
 ### Calling single colors:
 
 ```{r sample-plot3}
@@ -70,7 +72,7 @@ data %>%
 ```
 
 
-### Continuous:
+### Continuous Data:
 
 ```{r sample-plot4}
 data %>%
@@ -82,7 +84,7 @@ data %>%
   scale_color_cbi(discrete = FALSE)
 ```
 
-### Discrete:
+### Discrete Data:
 
 ```{r sample-plot5}
 plot <- ggplot(iris,
@@ -98,12 +100,10 @@ plot +
   scale_color_cbi(discrete = TRUE)
 ```
 
-#### Greater than 10 color case:
+#### Discrete data that requires more than 10 colors:
 ```{r sample-plot6}
 ggplot(mtcars, aes(x = mpg, y = hp, colour = as.character(wt))) +
   geom_point() +
   cbi_base_theme() +
   scale_colour_manual(values = make_cbi_pal()(29))
 ```
-
-## Saving charts to bring to reports and ppts functionality

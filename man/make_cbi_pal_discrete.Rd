@@ -10,7 +10,7 @@ make_cbi_pal_discrete(n)
 \item{n}{how many colors to return}
 }
 \description{
-Function takes CBI graph color palette and returns a vector of colors equal to n.
+Function takes CBI graph color palette and returns a vector of colors the size of n.
 Used in \code{\link{scale_color_cbi}} and \code{\link{scale_fill_cbi}} to make the discrete
 color scale
 }

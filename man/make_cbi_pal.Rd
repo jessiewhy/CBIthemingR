@@ -17,8 +17,8 @@ palette order}
 details here \code{\link[grDevices]{colorRamp}}}
 }
 \description{
-Uses CBI color palette and generates more colors from it,
-so that amount of colors needed is always met
+Uses CBI color palette and generates more colors from it
+so that amount of colors needed is always met.
 }
 \details{
 Interpolation set to "spline" (while default is "linear") to
@@ -30,6 +30,6 @@ Returns a function that takes a single value and turns it into many colors.
 
 ggplot2::ggplot(mtcars, ggplot2::aes(x = mpg, y = hp, color = as.character(wt))) +
   ggplot2::geom_point() +
-  ggplot2::scale_colour_manual(values = make_cbi_pal()(26))
+  ggplot2::scale_colour_manual(values = make_cbi_pal()(29))
 
 }

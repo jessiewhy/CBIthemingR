@@ -1,12 +1,12 @@
 #' Scale constructor for CBI colors
 #'
-#' If plotting discrete data that needs more than 10 colors,
-#' then you will have to create your own palette using
+#' Note: If plotting discrete data that requires > 10 colors,
+#' then user should create own palette using
 #' \code{\link{make_cbi_pal}}.
 #'
 #' @param palette Char name of palette in \code{cbi_palettes}
 #' @param discrete Bool flagging whether color aesthetic is discrete or not
-#' @param reverse Boolean indicating whether the palette should be reversed
+#' @param reverse Bool flagging whether the palette order should be reversed
 #' @param ... Further arguments passed to \code{\link{discrete_scale}} or
 #'   \code{\link{scale_colour_gradientn}}
 #'

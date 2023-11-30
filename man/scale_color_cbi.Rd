@@ -14,14 +14,14 @@ scale_fill_cbi(palette = NULL, discrete = FALSE, reverse = FALSE, ...)
 
 \item{discrete}{Bool flagging whether color aesthetic is discrete or not}
 
-\item{reverse}{Boolean indicating whether the palette should be reversed}
+\item{reverse}{Bool flagging whether the palette order should be reversed}
 
 \item{...}{Further arguments passed to \code{\link{discrete_scale}} or
 \code{\link{scale_colour_gradientn}}}
 }
 \description{
-If plotting discrete data that needs more than 10 colors,
-then you will have to create your own palette using
+Note: If plotting discrete data that requires > 10 colors,
+then user should create own palette using
 \code{\link{make_cbi_pal}}.
 }
 \section{Functions}{

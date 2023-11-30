@@ -17,8 +17,8 @@ palette order}
 details here \code{\link[grDevices]{colorRamp}}}
 }
 \description{
-Uses CBI color palette and generates more colors from it,
-so that amount of colors needed is always met
+Uses CBI color palette and generates more colors from it
+so that amount of colors needed is always met.
 }
 \details{
 Interpolation set to "spline" (while default is "linear") to

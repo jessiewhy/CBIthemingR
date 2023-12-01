@@ -7,7 +7,7 @@ Authors@R: c(
                 role = c("aut", "cre")))
 Description: Enables the user to create ggplot2 charts that conform 
     to Constellation Brands data science team standards. 
-License: Constellation Brands, Inc. 
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports:

@@ -61,6 +61,14 @@ plot +
   scale_color_cbi(discrete = TRUE)
 
 ## ----sample-plot6-------------------------------------------------------------
+plot <- ggplot(iris,
+               aes(Sepal.Length, fill=Species)) +
+        geom_bar() +
+        cbi_base_theme() +
+        scale_fill_cbi(discrete = TRUE)
+plot
+
+## ----sample-plot7-------------------------------------------------------------
 ggplot(mtcars, aes(x = mpg, y = hp, colour = as.character(wt))) +
   geom_point() +
   cbi_base_theme() +

@@ -5,15 +5,16 @@
 #' @export
 cbi_palettes <- list(
   `graph` = c(cbi_darkblue,
-              cbi_base_alsodarkblue,
               cbi_medblue,
+              cbi_lightblue,
+              cbi_base_alsodarkblue,
+              cbi_yellow,
+              cbi_base_gray,
               cbi_weirdblue,
               cbi_transblue,
               cbi_base_anothertransblue,
-              cbi_lightblue,
-              cbi_interestingblue,
-              cbi_yellow,
-              cbi_base_gray),
+              cbi_interestingblue
+              ),
   `sequential` = c(cbi_darkblue, cbi_medblue, cbi_lightblue),
   `diverging` = c(cbi_base_gray, cbi_yellow, cbi_base_medblue)
 )
@@ -24,14 +25,14 @@ cbi_palettes <- list(
 palette_order <- list(
   `curr` =
     c(cbi_darkblue,
+      cbi_weirdblue,
+      cbi_yellow,
       cbi_base_alsodarkblue,
       cbi_medblue,
-      cbi_weirdblue,
       cbi_transblue,
       cbi_base_anothertransblue,
       cbi_lightblue,
       cbi_interestingblue,
-      cbi_yellow,
       cbi_base_gray
       ))
 
@@ -101,7 +102,7 @@ make_cbi_pal_discrete <- function(n) {
       if (n <= 10){
         pal <- cbi_palettes[["graph"]][1:n]
 
-        order_name <- 'curr'
+        order_name <- "curr"
 
         order <- palette_order[[order_name]]
 

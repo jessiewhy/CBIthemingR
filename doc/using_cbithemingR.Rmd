@@ -103,6 +103,7 @@ plot +
   cbi_base_theme() +
   scale_color_cbi(discrete = TRUE)
 ```
+
 For fill elements, use the function `scale_fill_cbi`:
 ```{r sample-plot6}
 plot <- ggplot(iris,

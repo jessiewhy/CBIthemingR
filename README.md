@@ -17,5 +17,5 @@ devtools::install_github("jessiewhy/CBIthemingR")
 
 ## Theme charts to CBI standards
 
-See the CBIthemingR vignette for complete usage guide.
+See the [CBIthemingR vignette](https://jessiewhy.github.io/CBIthemingR/) for complete usage guide.
 

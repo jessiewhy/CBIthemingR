@@ -12,14 +12,12 @@ You can install the development version of CBIthemingR from [GitHub](https://git
 
 ``` r
 install.packages("devtools")
-devtools::install_github("jessiewhy/PHC6099-FINAL-PROJECT")
+devtools::install_github("jessiewhy/CBIthemingR")
 ```
 
 ## Theme charts to CBI standards
 
-See the [CBIthemingR
-vignette](https://grattan.github.io/grattantheme/articles/using_grattantheme.html)
-for a more complete guide.
+See the CBIthemingR vignette for a more complete guide.
 
 ``` r
 library(CBIthemingR)

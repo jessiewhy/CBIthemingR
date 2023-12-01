@@ -14,3 +14,4 @@ renv.lock
 /R/
 /renv/
 /vignettes/
+/ignore/

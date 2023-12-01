@@ -4,20 +4,22 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of CBIthemingR is to ...
+Create ggplot2 charts that meet Constellation Brands, Inc. (CBI) theming standards. 
 
 ## Installation
 
 You can install the development version of CBIthemingR from [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages("devtools")
+install.packages("devtools")
 devtools::install_github("jessiewhy/PHC6099-FINAL-PROJECT")
 ```
 
-## Example
+## Theme charts to CBI standards
 
-This is a basic example which shows you how to solve a common problem:
+See the [CBIthemingR
+vignette](https://grattan.github.io/grattantheme/articles/using_grattantheme.html)
+for a more complete guide.
 
 ``` r
 library(CBIthemingR)

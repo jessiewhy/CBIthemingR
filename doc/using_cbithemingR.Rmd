@@ -23,7 +23,6 @@ library(ggplot2)
 library(CBIthemingR)
 ```
 
-
 This vignette illustrates the process of applying `CBIthemingR` to stylize R charts created with the `ggplot` package, ensuring their visual alignment with the data science standards of Constellation Brands, Inc. (CBI). Those are that the outputted visuals to the business are readable, understandable, and representative of the company's branding. 
 
 Let's begin by plotting simulated financial data with `ggplot`.
@@ -39,6 +38,7 @@ data %>%
   scale_y_continuous() +
   scale_x_continuous()
 ```
+
 However, this initial chart is not readable by CBI standards. Normally, a data scientist at CBI would have to manually adjust '`theme`' elements to clean up the plot, such as cleaning up the axis numbers, removing the axis titles, and so on. By using the `CBIthemingR` package though, this process can be automated for all data scientists on the team during the development process. 
 
 \newpage 
@@ -61,6 +61,7 @@ To align `ggplot` charts with CBI color branding, please see examples below.
 
 ### Calling single colors:
 
+CBI colors can be called by their names:
 ```{r sample-plot3}
 data %>%
   ggplot(aes(x = x, y = y)) + 
@@ -74,6 +75,7 @@ data %>%
 
 ### Continuous Data:
 
+The function `scale_color_cbi` automatically handles continuous data via the discrete flag:
 ```{r sample-plot4}
 data %>%
   ggplot(aes(x = x, y = y)) + 
@@ -85,7 +87,9 @@ data %>%
 ```
 
 ### Discrete Data:
+Note: Using built in iris dataset for discrete data examples.  
 
+The function `scale_color_cbi` automatically handles discrete data via the discrete flag: 
 ```{r sample-plot5}
 plot <- ggplot(iris,
                aes(x = Sepal.Length,
@@ -101,6 +105,8 @@ plot +
 ```
 
 #### Discrete data that requires more than 10 colors:
+
+The function `make_cbi_pal` is able to handle discrete data that require more than 10 colors:
 ```{r sample-plot6}
 ggplot(mtcars, aes(x = mpg, y = hp, colour = as.character(wt))) +
   geom_point() +

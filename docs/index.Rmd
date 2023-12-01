@@ -103,6 +103,7 @@ plot +
   cbi_base_theme() +
   scale_color_cbi(discrete = TRUE)
 ```
+
 For fill elements, use the function `scale_fill_cbi`:
 ```{r sample-plot6}
 plot <- ggplot(iris,
@@ -122,3 +123,4 @@ ggplot(mtcars, aes(x = mpg, y = hp, colour = as.character(wt))) +
   cbi_base_theme() +
   scale_colour_manual(values = make_cbi_pal()(29))
 ```
+

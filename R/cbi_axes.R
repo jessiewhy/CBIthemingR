@@ -46,8 +46,6 @@ format_axis_labels_short <- function(x = c(0), gap = " ", sig_digits_small = NUL
 #'
 #' @param x The number to format.
 #'
-#' @return N/A
-#'
 #' @export
 #'
 #' @examples

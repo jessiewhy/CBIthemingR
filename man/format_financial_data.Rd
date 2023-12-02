@@ -9,9 +9,6 @@ format_financial_data(x = c(0))
 \arguments{
 \item{x}{The number to format.}
 }
-\value{
-N/A
-}
 \description{
 format_financial_data() formats axis labels in dollar notation for use in ggplot.
 }

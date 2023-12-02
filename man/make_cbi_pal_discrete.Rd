@@ -7,7 +7,7 @@
 make_cbi_pal_discrete(n)
 }
 \arguments{
-\item{n}{how many colors to return}
+\item{n}{number of colors to return}
 }
 \description{
 Function takes CBI graph color palette and returns a vector of colors the size of n.

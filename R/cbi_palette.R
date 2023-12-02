@@ -91,7 +91,7 @@ make_cbi_pal <- function(palette = "sequential",
 #' Used in \code{\link{scale_color_cbi}} and \code{\link{scale_fill_cbi}} to make the discrete
 #' color scale
 #'
-#' @param n how many colors to return
+#' @param n number of colors to return
 #'
 #' @export
 #'
